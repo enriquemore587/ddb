@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--hibernate-configuration>
+	<session-factory>
+	</session-factory>
+</hibernate-configuration-->
+<hibernate-configuration>
+	<session-factory>
+	<!-- Database connection settings -->
+		<property  name="connection.driver_class">com.mysql.jdbc.Driver</property>
+	<!-- Ubicación de la B.D. -->
+		<property name="connection.url">jdbc:mysql://localhost:3306/ddb</property>
+	<!-- Usuario de la B.D. -->
+		<property name="connection.username">root</property>
+	<!-- Contraseña de la B.D. -->
+		<property name="connection.password"></property>
+	<!-- Dialecto SQL -->
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+	<!-- Mostrar en consola las sentencias -->
+		<property name="show_sql">true</property>
+	<!-- MAPPING PARA LAS ENTIDADES -->
+		<mapping class="com.persist.domain.Profile"/>
+		<mapping class="com.persist.domain.CivilStatus"/>
+		<mapping class="com.persist.domain.ConsultingRooms"/>
+		<mapping class="com.persist.domain.TypeUser"/>
+		<mapping class="com.persist.domain.User"/>
+		
+	</session-factory>
+	
+</hibernate-configuration>
