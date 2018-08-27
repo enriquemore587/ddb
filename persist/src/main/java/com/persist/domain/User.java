@@ -38,6 +38,13 @@ public class User implements Serializable {
 	@PrimaryKeyJoinColumn
 	private UserAddress userAddress;
 
+	@OneToOne(cascade = CascadeType.ALL)
+	@PrimaryKeyJoinColumn
+	private UserPersonalData userPersonalData;
+
+	@OneToOne
+	private Meetings meetings;
+
 	public User() {
 		// TODO Auto-generated constructor stub
 	}

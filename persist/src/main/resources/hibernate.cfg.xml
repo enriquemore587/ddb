@@ -24,6 +24,13 @@
 		<mapping class="com.persist.domain.TypeUser"/>
 		<mapping class="com.persist.domain.User"/>
 		<mapping class="com.persist.domain.UserAddress"/>
+		<mapping class="com.persist.domain.UserPersonalData"/>
+		
+		<mapping class="com.persist.domain.TypeMeetings"/>
+		<mapping class="com.persist.domain.MeetingCategory"/>
+		<mapping class="com.persist.domain.Meetings"/>
+		
+		<mapping class="com.persist.domain.Payments"/>
 		
 	</session-factory>
 	
