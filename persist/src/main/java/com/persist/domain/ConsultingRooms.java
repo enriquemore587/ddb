@@ -18,6 +18,10 @@ public class ConsultingRooms implements Serializable {
 	@OneToOne(mappedBy = "consultingRooms")
 	private User user;
 
+	
+	public ConsultingRooms() {
+		// TODO Auto-generated constructor stub
+	}
 	public ConsultingRooms(int id, String description) {
 		super();
 		this.id = id;

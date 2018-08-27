@@ -21,6 +21,10 @@ public class TypeUser implements Serializable {
 	@OneToOne(mappedBy = "typeUser")
 	private User user;
 
+	public TypeUser() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public TypeUser(String description) {
 		this.description = description;
 	}

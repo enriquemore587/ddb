@@ -18,7 +18,9 @@ public class CivilStatus implements Serializable {
 	private int id;
 	private String description;
 	
-	
+	public CivilStatus() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public CivilStatus(int id, String description) {
 		this.id = id;

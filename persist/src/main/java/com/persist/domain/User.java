@@ -2,12 +2,14 @@ package com.persist.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -31,6 +33,19 @@ public class User implements Serializable {
 	@OneToOne
 	@JoinColumn(name = "profile_id")
 	private Profile profile;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@PrimaryKeyJoinColumn
+	private UserAddress userAddress;
+
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", user_name=" + user_name + ", password=" + password + "]";
+	}
 
 	public User(String user_name, String password) {
 		this.user_name = user_name;
@@ -83,6 +98,14 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public UserAddress getUserAddress() {
+		return userAddress;
+	}
+
+	public void setUserAddress(UserAddress userAddress) {
+		this.userAddress = userAddress;
 	}
 
 	/**

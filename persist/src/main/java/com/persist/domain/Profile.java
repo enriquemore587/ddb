@@ -45,6 +45,10 @@ public class Profile implements Serializable {
 	public void setType(int type) {
 		this.type = type;
 	}
+	
+	public Profile() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public Profile(String description, int type) {
 		this.description = description;

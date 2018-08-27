@@ -23,6 +23,7 @@
 		<mapping class="com.persist.domain.ConsultingRooms"/>
 		<mapping class="com.persist.domain.TypeUser"/>
 		<mapping class="com.persist.domain.User"/>
+		<mapping class="com.persist.domain.UserAddress"/>
 		
 	</session-factory>
 	
