@@ -19,7 +19,7 @@ public class MeetingCategory implements Serializable {
 
 	public String description;
 	
-	@OneToOne(mappedBy = "typeMeetings")
+	@OneToOne(mappedBy = "meetingCategory")
 	Meetings meetings;
 	
 	public MeetingCategory() {
@@ -29,8 +29,6 @@ public class MeetingCategory implements Serializable {
 	public MeetingCategory(String description) {
 		this.description = description;
 	}
-
-
 
 	public Long getId() {
 		return id;
@@ -52,6 +50,13 @@ public class MeetingCategory implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "MeetingCategory [id=" + id + ", description=" + description + ", meetings=" + meetings + "]";
 	}
 
 

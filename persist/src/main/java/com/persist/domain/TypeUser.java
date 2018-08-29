@@ -3,6 +3,7 @@ package com.persist.domain;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +25,7 @@ public class TypeUser implements Serializable {
 	public TypeUser() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public TypeUser(String description) {
 		this.description = description;
 	}
@@ -45,17 +46,31 @@ public class TypeUser implements Serializable {
 		this.description = description;
 	}
 
-	public User getUser() {
-		return user;
-	}
+//	public User getUser() {
+//		return user;
+//	}
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+//	@Override
+//	public String toString() {
+//		return "TypeUser [id=" + id + ", description=" + description + "]";
+//	}
+	
+	
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 892308747196988982L;
+
+	@Override
+	public String toString() {
+		return "TypeUser [id=" + id + ", description=" + description + ""
+				+ ", user=" + user 
+				+ "]";
+	}
 
 }

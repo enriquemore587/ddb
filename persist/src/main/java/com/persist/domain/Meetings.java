@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -40,14 +41,14 @@ public class Meetings implements Serializable {
 	private String meeting_done;
 
 	private String paid;
-	
+
 	private Float debt;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "doctor_id")
 	private User doctor;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "patient_id")
 	private User patient;
 
@@ -57,27 +58,17 @@ public class Meetings implements Serializable {
 
 	@OneToOne
 	@JoinColumn(name = "meeting_category_id")
-	MeetingCategory meetingCategory;
+	private MeetingCategory meetingCategory;
 
-	@OneToMany(mappedBy="meetings")
+	@OneToMany(mappedBy = "meetings")
 	private List<Payments> paymentsList;
-
-	public List<Payments> getPaymentsList() {
-		return paymentsList;
-	}
-
-	public void setPaymentsList(List<Payments> paymentsList) {
-		this.paymentsList = paymentsList;
-	}
 
 	public Meetings() {
 		// TODO Auto-generated constructor stub
-		this.paymentsList = new ArrayList<Payments>();
 	}
 
 	public Meetings(Date date_meeting, Date start_meeting, Date end_meeting, String is_important, Float cost,
-			String meeting_done, String paid) {
-
+			String meeting_done, String paid, Float debt) {
 		this.date_meeting = date_meeting;
 		this.start_meeting = start_meeting;
 		this.end_meeting = end_meeting;
@@ -85,16 +76,7 @@ public class Meetings implements Serializable {
 		this.cost = cost;
 		this.meeting_done = meeting_done;
 		this.paid = paid;
-		this.paymentsList = new ArrayList<Payments>();
-
-	}
-
-	public MeetingCategory getMeetingCategory() {
-		return meetingCategory;
-	}
-
-	public void setMeetingCategory(MeetingCategory meetingCategory) {
-		this.meetingCategory = meetingCategory;
+		this.debt = debt;
 	}
 
 	public Long getId() {
@@ -161,6 +143,14 @@ public class Meetings implements Serializable {
 		this.paid = paid;
 	}
 
+	public Float getDebt() {
+		return debt;
+	}
+
+	public void setDebt(Float debt) {
+		this.debt = debt;
+	}
+
 	public User getDoctor() {
 		return doctor;
 	}
@@ -185,12 +175,20 @@ public class Meetings implements Serializable {
 		this.typeMeetings = typeMeetings;
 	}
 
-	public Float getDebt() {
-		return debt;
+	public MeetingCategory getMeetingCategory() {
+		return meetingCategory;
 	}
 
-	public void setDebt(Float debt) {
-		this.debt = debt;
+	public void setMeetingCategory(MeetingCategory meetingCategory) {
+		this.meetingCategory = meetingCategory;
+	}
+
+	public List<Payments> getPaymentsList() {
+		return paymentsList;
+	}
+
+	public void setPaymentsList(List<Payments> paymentsList) {
+		this.paymentsList = paymentsList;
 	}
 
 	/**

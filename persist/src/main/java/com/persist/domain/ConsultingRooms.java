@@ -18,12 +18,11 @@ public class ConsultingRooms implements Serializable {
 	@OneToOne(mappedBy = "consultingRooms")
 	private User user;
 
-	
 	public ConsultingRooms() {
 		// TODO Auto-generated constructor stub
 	}
+
 	public ConsultingRooms(int id, String description) {
-		super();
 		this.id = id;
 		this.description = description;
 	}
@@ -51,6 +50,15 @@ public class ConsultingRooms implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "ConsultingRooms [id=" + id + ", description=" + description + ", user=" + user + "]";
+	}
+
+
 
 	/**
 	 * 

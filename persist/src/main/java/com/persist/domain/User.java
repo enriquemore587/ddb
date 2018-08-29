@@ -1,6 +1,8 @@
 package com.persist.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -8,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -41,9 +44,13 @@ public class User implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL)
 	@PrimaryKeyJoinColumn
 	private UserPersonalData userPersonalData;
+	
 
-	@OneToOne
-	private Meetings meetings;
+	@OneToMany(mappedBy = "doctor")
+    private List<Meetings> doctors = new ArrayList<Meetings>();
+	
+	@OneToMany(mappedBy = "patient")
+    private List<Meetings> patients = new ArrayList<Meetings>();
 
 	public User() {
 		// TODO Auto-generated constructor stub

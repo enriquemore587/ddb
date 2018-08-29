@@ -33,19 +33,12 @@ public class Payments implements Serializable {
 	@JoinColumn(name = "meeting_id")
 	private Meetings meetings;
 
-	public Payments() {
-
-	}
-
-	
-
 	public Payments(Float payment, Date payment_moment, Date next_date_payment) {
+		super();
 		this.payment = payment;
 		this.payment_moment = payment_moment;
 		this.next_date_payment = next_date_payment;
 	}
-
-
 
 	public Long getId() {
 		return id;
