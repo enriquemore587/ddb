@@ -1,12 +1,13 @@
 package com.persist.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,14 +20,13 @@ public class TypeMeetings implements Serializable {
 
 	private String description;
 
-	@OneToOne(mappedBy = "typeMeetings")
-	Meetings meetings;
+	@OneToMany(mappedBy = "typeMeetings")
+	private List<Meetings> meetingsList;
 
-	
 	public TypeMeetings() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public TypeMeetings(String description) {
 		this.description = description;
 	}
@@ -46,18 +46,19 @@ public class TypeMeetings implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
 
-	public Meetings getMeetings() {
-		return meetings;
+	public List<Meetings> getMeetingsList() {
+		return meetingsList;
 	}
 
-	public void setMeetings(Meetings meetings) {
-		this.meetings = meetings;
+	public void setMeetingsList(List<Meetings> meetingsList) {
+		this.meetingsList = meetingsList;
 	}
 
-
+	@Override
+	public String toString() {
+		return "TypeMeetings [id=" + id + ", description=" + description + "]";
+	}
 
 	/**
 	 * 

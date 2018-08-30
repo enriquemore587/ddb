@@ -6,7 +6,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,7 +25,7 @@ public class UserPersonalData implements Serializable {
 	private Date birthdate;
 	private String important_note;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "civil_status_id")
 	private CivilStatus civilStatus;
 
@@ -35,7 +35,6 @@ public class UserPersonalData implements Serializable {
 
 	public UserPersonalData(String name, String last_name, String last_name2, String phone_number,
 			String mobile_phone_number, String gender, Date birthdate, String important_note) {
-		super();
 		this.name = name;
 		this.last_name = last_name;
 		this.last_name2 = last_name2;
@@ -124,6 +123,13 @@ public class UserPersonalData implements Serializable {
 
 	public void setCivilStatus(CivilStatus civilStatus) {
 		this.civilStatus = civilStatus;
+	}
+
+	@Override
+	public String toString() {
+		return "UserPersonalData [id=" + id + ", name=" + name + ", last_name=" + last_name + ", last_name2="
+				+ last_name2 + ", phone_number=" + phone_number + ", mobile_phone_number=" + mobile_phone_number
+				+ ", gender=" + gender + ", birthdate=" + birthdate + ", important_note=" + important_note + "]";
 	}
 
 	/**

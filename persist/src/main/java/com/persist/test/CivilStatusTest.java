@@ -10,32 +10,30 @@ import com.persist.util.HibernateUtil;
 
 public class CivilStatusTest {
 	public static void main(String[] args) {
-		Session session = HibernateUtil.buildSessionFactory().openSession();
+		Session session = HibernateUtil.getSessionfactory().openSession();
+
+		CivilStatusService civilStatusService = new CivilStatusService(session);
 
 //		SAVE
-		
-//		CivilStatusService civilStatusService = new CivilStatusService(session);
+
 //		CivilStatus civilStatus = new CivilStatus("CASADO (A)");
 //		civilStatusService.save(civilStatus);
 //		System.out.println(civilStatus.toString());
 
-		
 //		SELECT * FROM 
-		
-//		CivilStatusService civilStatusService = new CivilStatusService(session);
-//		List<CivilStatus> list = civilStatusService.findAll();
-//		System.out.println(list);
-		
-//		CivilStatus civilStatus = civilStatusService.findById(1l);
-//		System.out.println(civilStatus.toString());
 
-		
-//		SELECT WHERE ID = ?
-		CivilStatusService civilStatusService = new CivilStatusService(session);
-		CivilStatus civilStatus = civilStatusService.findById(2l);
+		List<CivilStatus> list = civilStatusService.findAll();
+		System.out.println(list.size());
+		System.out.println(list.toString());
+
+		CivilStatus civilStatus = civilStatusService.findById(1l);
 		System.out.println(civilStatus.toString());
-		
-		
+
+//		SELECT WHERE ID = ?
+		civilStatus = civilStatusService.findById(2l);
+		System.out.println(civilStatus.toString());
+
 		civilStatusService.closeSession();
+		System.exit(0);
 	}
 }

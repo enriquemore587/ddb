@@ -1,7 +1,6 @@
 package com.persist.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -52,11 +50,11 @@ public class Meetings implements Serializable {
 	@JoinColumn(name = "patient_id")
 	private User patient;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "type_meetings_id")
 	private TypeMeetings typeMeetings;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "meeting_category_id")
 	private MeetingCategory meetingCategory;
 
@@ -189,6 +187,13 @@ public class Meetings implements Serializable {
 
 	public void setPaymentsList(List<Payments> paymentsList) {
 		this.paymentsList = paymentsList;
+	}
+
+	@Override
+	public String toString() {
+		return "Meetings [id=" + id + ", date_meeting=" + date_meeting + ", start_meeting=" + start_meeting
+				+ ", end_meeting=" + end_meeting + ", is_important=" + is_important + ", cost=" + cost
+				+ ", meeting_done=" + meeting_done + ", paid=" + paid + ", debt=" + debt + "]";
 	}
 
 	/**

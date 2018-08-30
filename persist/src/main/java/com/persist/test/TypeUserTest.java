@@ -10,21 +10,22 @@ import com.persist.util.HibernateUtil;
 
 public class TypeUserTest {
 	public static void main(String[] args) {
-		Session session = HibernateUtil.buildSessionFactory().openSession();
+		Session session = HibernateUtil.getSessionfactory().openSession();
 		TypeUserService service = new TypeUserService(session);
 
 //		TypeUser typeUser = new TypeUser("MOBILE");
 //		service.save(typeUser);
 //		System.out.println(typeUser);
 
-//		List<TypeUser> list = service.findAll();
-//		System.out.println(list.toString());
+		List<TypeUser> list = service.findAll();
+		System.out.println(list.size());
+		System.out.println(list.toString());
 
-		TypeUser typeUser = service.findById(6l);
-		System.out.println(typeUser);
-		
-		
+		 TypeUser typeUser = service.findById(13l);
+		 System.out.println(typeUser);
+
 		service.closeSession();
+		System.exit(0);
 
 	}
 }

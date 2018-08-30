@@ -10,21 +10,21 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.persist.domain.CivilStatus;
+import com.persist.domain.TypeMeetings;
 
-public class CivilStatusDaoImpl implements CivilStatusDao {
-	public static Logger LOG = Logger.getLogger(CivilStatusDaoImpl.class.getName());
+public class TypeMeetingsDaoImpl implements TypeMeetingsDao {
+	public static Logger LOG = Logger.getLogger(TypeMeetingsDaoImpl.class.getName());
 	private Session session;
 
-	public CivilStatusDaoImpl(Session session) {
+	public TypeMeetingsDaoImpl(Session session) {
 		this.session = session;
 	}
 
-	public void save(CivilStatus civilStatus) {
+	public void save(TypeMeetings meetings) {
 		Transaction tx = null;
 		try {
 			tx = this.session.beginTransaction();
-			this.session.save(civilStatus);
+			this.session.save(meetings);
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null) {
@@ -34,53 +34,53 @@ public class CivilStatusDaoImpl implements CivilStatusDao {
 		}
 	}
 
-	public List<CivilStatus> findAll() {
+	public List<TypeMeetings> findAll() {
 		Transaction tx = null;
-		List<CivilStatus> civilStatusList = null;
+		List<TypeMeetings> typeMeetingsList = null;
 		try {
 			tx = this.session.beginTransaction();
 			CriteriaBuilder builder = this.session.getCriteriaBuilder();
-			CriteriaQuery<CivilStatus> criteria = builder.createQuery(CivilStatus.class);
+			CriteriaQuery<TypeMeetings> criteria = builder.createQuery(TypeMeetings.class);
 
-			Root<CivilStatus> root = criteria.from(CivilStatus.class);
+			Root<TypeMeetings> root = criteria.from(TypeMeetings.class);
 			criteria.select(root);
 
-			civilStatusList = this.session.createQuery(criteria).getResultList();
+			typeMeetingsList = this.session.createQuery(criteria).getResultList();
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null) {
 				tx.rollback();
-				civilStatusList = null;
+				typeMeetingsList = null;
 			}
 			e.printStackTrace();
 		}
-		return civilStatusList;
+		return typeMeetingsList;
 	}
 
-	public CivilStatus findById(Long id) {
+	public TypeMeetings findById(Long id) {
 		Transaction tx = null;
-		CivilStatus civilStatus = null;
+		TypeMeetings typeMeetings = null;
 		try {
 			tx = this.session.beginTransaction();
 
 			CriteriaBuilder builder = this.session.getCriteriaBuilder();
-			CriteriaQuery<CivilStatus> criteria = builder.createQuery(CivilStatus.class);
+			CriteriaQuery<TypeMeetings> criteria = builder.createQuery(TypeMeetings.class);
 
-			Root<CivilStatus> root = criteria.from(CivilStatus.class);
+			Root<TypeMeetings> root = criteria.from(TypeMeetings.class);
 
 			criteria.select(root).where(builder.equal(root.get("id"), id));
 
-			civilStatus = this.session.createQuery(criteria).getSingleResult();
+			typeMeetings = this.session.createQuery(criteria).getSingleResult();
 
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null) {
 				tx.rollback();
-				civilStatus = null;
+				typeMeetings = null;
 			}
 			e.printStackTrace();
 		}
-		return civilStatus;
+		return typeMeetings;
 	}
 
 	public void closeSession() {

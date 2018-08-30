@@ -1,32 +1,17 @@
 package com.persist.test;
 
-import java.util.Date;
-import java.util.List;
 import java.util.logging.Logger;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.persist.domain.ConsultingRooms;
-import com.persist.domain.MeetingCategory;
-import com.persist.domain.Meetings;
-import com.persist.domain.Payments;
-import com.persist.domain.Profile;
-import com.persist.domain.TypeMeetings;
-import com.persist.domain.TypeUser;
-import com.persist.domain.User;
-import com.persist.domain.UserAddress;
 import com.persist.util.HibernateUtil;
 
 public class Test {
 	public static Logger LOG = Logger.getLogger(Test.class.getName());
 
 	public static void main(String[] args) {
-		Session session = HibernateUtil.buildSessionFactory().openSession();
+		Session session = HibernateUtil.getSessionfactory().openSession();
 		Transaction tx = null;
 
 		try {

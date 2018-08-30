@@ -1,10 +1,12 @@
 package com.persist.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,8 +17,8 @@ public class ConsultingRooms implements Serializable {
 	private int id;
 	private String description;
 
-	@OneToOne(mappedBy = "consultingRooms")
-	private User user;
+	@OneToMany(mappedBy = "consultingRooms", cascade = CascadeType.ALL)
+	private List<User> userList;
 
 	public ConsultingRooms() {
 		// TODO Auto-generated constructor stub
@@ -43,19 +45,17 @@ public class ConsultingRooms implements Serializable {
 		this.description = description;
 	}
 
-	public User getUser() {
-		return user;
+	public List<User> getUserList() {
+		return userList;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
 	}
-	
-	
 
 	@Override
 	public String toString() {
-		return "ConsultingRooms [id=" + id + ", description=" + description + ", user=" + user + "]";
+		return "ConsultingRooms [id=" + id + ", description=" + description + "]";
 	}
 
 

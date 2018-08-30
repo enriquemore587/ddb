@@ -1,13 +1,13 @@
 package com.persist.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,25 +16,24 @@ public class TypeUser implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	private String description;
 
-	@OneToOne(mappedBy = "typeUser")
-	private User user;
+	@OneToMany(mappedBy = "typeUser")
+	private List<User> userList;
 
 	public TypeUser() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public TypeUser(String description) {
 		this.description = description;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -46,31 +45,22 @@ public class TypeUser implements Serializable {
 		this.description = description;
 	}
 
-//	public User getUser() {
-//		return user;
-//	}
-//
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
+	public List<User> getUserList() {
+		return userList;
+	}
 
-//	@Override
-//	public String toString() {
-//		return "TypeUser [id=" + id + ", description=" + description + "]";
-//	}
-	
-	
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
+	}
+
+	@Override
+	public String toString() {
+		return "TypeUser [id=" + id + ", description=" + description + "]";
+	}
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 892308747196988982L;
-
-	@Override
-	public String toString() {
-		return "TypeUser [id=" + id + ", description=" + description + ""
-				+ ", user=" + user 
-				+ "]";
-	}
 
 }

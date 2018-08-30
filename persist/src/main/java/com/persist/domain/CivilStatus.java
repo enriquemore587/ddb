@@ -1,13 +1,13 @@
 package com.persist.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,8 +19,8 @@ public class CivilStatus implements Serializable {
 	private int id;
 	private String description;
 
-	@OneToOne(mappedBy = "civilStatus")
-	private UserPersonalData userPersonalData;
+	@OneToMany(mappedBy = "civilStatus")
+	private List<UserPersonalData> userPersonalDataList;
 
 	public CivilStatus() {
 		// TODO Auto-generated constructor stub
@@ -28,22 +28,6 @@ public class CivilStatus implements Serializable {
 
 	public CivilStatus(String description) {
 		this.description = description;
-	}
-
-//	public UserPersonalData getUserPersonalData() {
-//		return userPersonalData;
-//	}
-//
-//	public void setUserPersonalData(UserPersonalData userPersonalData) {
-//		this.userPersonalData = userPersonalData;
-//	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getDescription() {
@@ -54,19 +38,17 @@ public class CivilStatus implements Serializable {
 		this.description = description;
 	}
 
-	
-	
-//	@Override
-//	public String toString() {
-//		return "CivilStatus [id=" + id + ", description=" + description + "]";
-//	}
+	public List<UserPersonalData> getUserPersonalDataList() {
+		return userPersonalDataList;
+	}
+
+	public void setUserPersonalDataList(List<UserPersonalData> userPersonalDataList) {
+		this.userPersonalDataList = userPersonalDataList;
+	}
 
 	@Override
 	public String toString() {
-		return "CivilStatus [id=" + id + ", description=" + description + ", "
-//				+ "userPersonalData=" 
-//				+ userPersonalData
-				+ "]";
+		return "CivilStatus [id=" + id + ", description=" + description + "]";
 	}
 
 

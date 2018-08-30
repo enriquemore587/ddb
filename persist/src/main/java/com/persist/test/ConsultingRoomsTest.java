@@ -8,7 +8,7 @@ import com.persist.util.HibernateUtil;
 
 public class ConsultingRoomsTest {
 	public static void main(String[] args) {
-		Session session = HibernateUtil.buildSessionFactory().openSession();
+		Session session = HibernateUtil.getSessionfactory().openSession();
 		ConsultingRoomsService consultingRoomsService = new ConsultingRoomsService(session);
 
 //		ConsultingRooms consultingRooms = new ConsultingRooms(4, "HIDALGO");
@@ -24,6 +24,7 @@ public class ConsultingRoomsTest {
 		System.out.println(consultingRooms);
 
 		consultingRoomsService.closeSession();
+		System.exit(0);
 
 	}
 }

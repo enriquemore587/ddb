@@ -10,21 +10,22 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.persist.domain.CivilStatus;
+import com.persist.domain.Profile;
 
-public class CivilStatusDaoImpl implements CivilStatusDao {
-	public static Logger LOG = Logger.getLogger(CivilStatusDaoImpl.class.getName());
+public class ProfileDaoImpl implements ProfileDao {
+
 	private Session session;
+	public static Logger LOG = Logger.getLogger(ProfileDaoImpl.class.getName());
 
-	public CivilStatusDaoImpl(Session session) {
+	public ProfileDaoImpl(Session session) {
 		this.session = session;
 	}
 
-	public void save(CivilStatus civilStatus) {
+	public void save(Profile profile) {
 		Transaction tx = null;
 		try {
 			tx = this.session.beginTransaction();
-			this.session.save(civilStatus);
+			this.session.save(profile);
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null) {
@@ -34,15 +35,15 @@ public class CivilStatusDaoImpl implements CivilStatusDao {
 		}
 	}
 
-	public List<CivilStatus> findAll() {
+	public List<Profile> findAll() {
 		Transaction tx = null;
-		List<CivilStatus> civilStatusList = null;
+		List<Profile> civilStatusList = null;
 		try {
 			tx = this.session.beginTransaction();
 			CriteriaBuilder builder = this.session.getCriteriaBuilder();
-			CriteriaQuery<CivilStatus> criteria = builder.createQuery(CivilStatus.class);
+			CriteriaQuery<Profile> criteria = builder.createQuery(Profile.class);
 
-			Root<CivilStatus> root = criteria.from(CivilStatus.class);
+			Root<Profile> root = criteria.from(Profile.class);
 			criteria.select(root);
 
 			civilStatusList = this.session.createQuery(criteria).getResultList();
@@ -57,30 +58,30 @@ public class CivilStatusDaoImpl implements CivilStatusDao {
 		return civilStatusList;
 	}
 
-	public CivilStatus findById(Long id) {
+	public Profile findById(Long id) {
 		Transaction tx = null;
-		CivilStatus civilStatus = null;
+		Profile profile = null;
 		try {
 			tx = this.session.beginTransaction();
 
 			CriteriaBuilder builder = this.session.getCriteriaBuilder();
-			CriteriaQuery<CivilStatus> criteria = builder.createQuery(CivilStatus.class);
+			CriteriaQuery<Profile> criteria = builder.createQuery(Profile.class);
 
-			Root<CivilStatus> root = criteria.from(CivilStatus.class);
+			Root<Profile> root = criteria.from(Profile.class);
 
 			criteria.select(root).where(builder.equal(root.get("id"), id));
 
-			civilStatus = this.session.createQuery(criteria).getSingleResult();
+			profile = this.session.createQuery(criteria).getSingleResult();
 
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null) {
 				tx.rollback();
-				civilStatus = null;
+				profile = null;
 			}
 			e.printStackTrace();
 		}
-		return civilStatus;
+		return profile;
 	}
 
 	public void closeSession() {

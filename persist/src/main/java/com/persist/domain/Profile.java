@@ -1,12 +1,13 @@
 package com.persist.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,18 +16,26 @@ public class Profile implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	private String description;
 	private int type;
 
-	@OneToOne(mappedBy = "profile")
-	private User user;
+	@OneToMany(mappedBy = "profile")
+	private List<User> userList;
 
-	public int getId() {
+	public Profile() {
+	}
+
+	public Profile(String description, int type) {
+		this.description = description;
+		this.type = type;
+	}
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -45,14 +54,18 @@ public class Profile implements Serializable {
 	public void setType(int type) {
 		this.type = type;
 	}
-	
-	public Profile() {
-		// TODO Auto-generated constructor stub
+
+	public List<User> getUserList() {
+		return userList;
 	}
 
-	public Profile(String description, int type) {
-		this.description = description;
-		this.type = type;
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
+	}
+
+	@Override
+	public String toString() {
+		return "Profile [id=" + id + ", description=" + description + ", type=" + type + "]";
 	}
 
 	/**
