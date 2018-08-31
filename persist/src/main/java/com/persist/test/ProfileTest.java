@@ -24,7 +24,9 @@ public class ProfileTest {
 
 		List<Profile> list = profileService.findAll();
 		System.out.println(list.size());
-		System.out.println(list.toString());
+		for (Profile profile : list) {
+			System.out.println(profile);
+		}
 
 		Profile profile = profileService.findById(9l);
 		System.out.println(profile.toString());

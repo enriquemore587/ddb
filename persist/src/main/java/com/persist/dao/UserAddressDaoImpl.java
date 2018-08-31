@@ -9,20 +9,20 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.persist.domain.User;
+import com.persist.domain.UserAddress;
 
-public class UserDaoImpl implements UserDao {
+public class UserAddressDaoImpl implements UserAddressDao {
 	private Session session;
 
-	public UserDaoImpl(Session session) {
+	public UserAddressDaoImpl(Session session) {
 		this.session = session;
 	}
 
-	public void save(User user) {
+	public void save(UserAddress userAddress) {
 		Transaction tx = null;
 		try {
 			tx = this.session.beginTransaction();
-			this.session.save(user);
+			this.session.save(userAddress);
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null) {
@@ -32,15 +32,15 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 
-	public List<User> findAll() {
+	public List<UserAddress> findAll() {
 		Transaction tx = null;
-		List<User> list = null;
+		List<UserAddress> list = null;
 		try {
 			tx = this.session.beginTransaction();
 			CriteriaBuilder builder = this.session.getCriteriaBuilder();
-			CriteriaQuery<User> criteria = builder.createQuery(User.class);
+			CriteriaQuery<UserAddress> criteria = builder.createQuery(UserAddress.class);
 
-			Root<User> root = criteria.from(User.class);
+			Root<UserAddress> root = criteria.from(UserAddress.class);
 
 			criteria.select(root);
 
@@ -57,30 +57,30 @@ public class UserDaoImpl implements UserDao {
 		return list;
 	}
 
-	public User findById(Long id) {
+	public UserAddress findById(Long id) {
 		Transaction tx = null;
-		User user = null;
+		UserAddress userAddress = null;
 		try {
 			tx = this.session.beginTransaction();
 			// Fábrica para las piezas individuales de la criteria
 			CriteriaBuilder builder = this.session.getCriteriaBuilder();
-			CriteriaQuery<User> criteria = builder.createQuery(User.class);
+			CriteriaQuery<UserAddress> criteria = builder.createQuery(UserAddress.class);
 
 			// Define el tipo de entidadque retorna la consulta
-			Root<User> root = criteria.from(User.class);
+			Root<UserAddress> root = criteria.from(UserAddress.class);
 
 			criteria.where(builder.equal(root.get("id"), id));
 
-			user = this.session.createQuery(criteria).getSingleResult();
+			userAddress = this.session.createQuery(criteria).getSingleResult();
 
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null) {
 				tx.rollback();
-				user = null;
+				userAddress = null;
 			}
 		}
-		return user;
+		return userAddress;
 	}
 
 	public void closeSession() {

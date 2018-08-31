@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -24,14 +25,17 @@ public class UserAddress implements Serializable {
 	private String num_ext;
 	private String num_int;
 
-	@OneToOne(mappedBy = "userAddress")
+	@OneToOne
+	@PrimaryKeyJoinColumn
 	private User user;
 
 	public UserAddress() {
 	}
-
-	public UserAddress(String cp, Integer state, Integer municipality, String colony, String street, String num_ext,
-			String num_int) {
+	
+	public UserAddress(Long id, String cp, Integer state, Integer municipality, String colony, String street,
+			String num_ext, String num_int) {
+		super();
+		this.id = id;
 		this.cp = cp;
 		this.state = state;
 		this.municipality = municipality;

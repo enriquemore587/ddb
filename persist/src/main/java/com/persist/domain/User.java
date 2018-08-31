@@ -37,12 +37,11 @@ public class User implements Serializable {
 	@JoinColumn(name = "profile_id")
 	private Profile profile;
 
-	@OneToOne
+	@OneToOne(mappedBy = "user")
 	@PrimaryKeyJoinColumn
 	private UserAddress userAddress;
 
-	@OneToOne
-	@PrimaryKeyJoinColumn
+	@OneToOne(mappedBy = "user")
 	private UserPersonalData userPersonalData;
 
 	@OneToMany(mappedBy = "doctor")
@@ -141,7 +140,7 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [user_name=" + user_name + ", password=" + password + "]";
+		return "User [id=" + id + ", user_name=" + user_name + ", password=" + password + "]";
 	}
 
 	/**

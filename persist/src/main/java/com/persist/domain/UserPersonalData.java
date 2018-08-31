@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -29,8 +31,11 @@ public class UserPersonalData implements Serializable {
 	@JoinColumn(name = "civil_status_id")
 	private CivilStatus civilStatus;
 
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	private User user;
+
 	public UserPersonalData() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public UserPersonalData(String name, String last_name, String last_name2, String phone_number,
@@ -125,12 +130,21 @@ public class UserPersonalData implements Serializable {
 		this.civilStatus = civilStatus;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	@Override
 	public String toString() {
 		return "UserPersonalData [id=" + id + ", name=" + name + ", last_name=" + last_name + ", last_name2="
 				+ last_name2 + ", phone_number=" + phone_number + ", mobile_phone_number=" + mobile_phone_number
 				+ ", gender=" + gender + ", birthdate=" + birthdate + ", important_note=" + important_note + "]";
 	}
+
 
 	/**
 	 * 
