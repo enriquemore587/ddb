@@ -4,17 +4,24 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
 @Entity
 @Table(name = "user_address")
 public class UserAddress implements Serializable {
 
 	@Id
-	@Column(name = "id")
+	@GeneratedValue(generator="gen")
+	@Column(unique=true, nullable=false)
+	@GenericGenerator(name="gen", strategy="foreign", parameters=@Parameter(value="user", name = "property") )
 	private Long id;
 
 	private String cp;
@@ -25,17 +32,15 @@ public class UserAddress implements Serializable {
 	private String num_ext;
 	private String num_int;
 
-	@OneToOne
+	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
 	private User user;
 
 	public UserAddress() {
 	}
 	
-	public UserAddress(Long id, String cp, Integer state, Integer municipality, String colony, String street,
+	public UserAddress(String cp, Integer state, Integer municipality, String colony, String street,
 			String num_ext, String num_int) {
-		super();
-		this.id = id;
 		this.cp = cp;
 		this.state = state;
 		this.municipality = municipality;
