@@ -8,6 +8,10 @@ import com.persist.dao.TypeUserDao;
 import com.persist.dao.TypeUserDaoImpl;
 import com.persist.domain.TypeUser;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public class TypeUserService implements TypeUserDao {
 
 	private TypeUserDao typeUserDao;

@@ -8,6 +8,10 @@ import com.persist.dao.CivilStatusDao;
 import com.persist.dao.CivilStatusDaoImpl;
 import com.persist.domain.CivilStatus;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public class CivilStatusService implements CivilStatusDao {
 
 	private CivilStatusDao civilStatusDao;

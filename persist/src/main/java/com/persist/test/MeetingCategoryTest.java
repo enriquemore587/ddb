@@ -8,6 +8,10 @@ import com.persist.domain.MeetingCategory;
 import com.persist.service.MeetingCategoryService;
 import com.persist.util.HibernateUtil;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public class MeetingCategoryTest {
 	public static void main(String[] args) {
 		Session session = HibernateUtil.getSessionfactory().openSession();

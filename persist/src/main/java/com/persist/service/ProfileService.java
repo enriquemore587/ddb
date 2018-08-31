@@ -8,6 +8,10 @@ import com.persist.dao.ProfileDao;
 import com.persist.dao.ProfileDaoImpl;
 import com.persist.domain.Profile;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public class ProfileService implements ProfileDao {
 	private ProfileDao profileDao;
 

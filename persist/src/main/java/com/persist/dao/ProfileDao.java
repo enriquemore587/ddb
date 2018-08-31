@@ -4,6 +4,10 @@ import java.util.List;
 
 import com.persist.domain.Profile;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public interface ProfileDao {
 	
 	public void save(Profile profile);

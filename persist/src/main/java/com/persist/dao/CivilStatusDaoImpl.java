@@ -12,6 +12,10 @@ import org.hibernate.Transaction;
 
 import com.persist.domain.CivilStatus;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public class CivilStatusDaoImpl implements CivilStatusDao {
 	public static Logger LOG = Logger.getLogger(CivilStatusDaoImpl.class.getName());
 	private Session session;

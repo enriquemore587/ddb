@@ -8,6 +8,10 @@ import com.persist.dao.UserAddressDao;
 import com.persist.dao.UserAddressDaoImpl;
 import com.persist.domain.UserAddress;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public class UserAddressService implements UserAddressDao {
 	private UserAddressDao userAddressDao;
 

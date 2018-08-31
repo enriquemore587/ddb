@@ -14,6 +14,10 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 @Entity
 @Table(name = "user_address")
 public class UserAddress implements Serializable {

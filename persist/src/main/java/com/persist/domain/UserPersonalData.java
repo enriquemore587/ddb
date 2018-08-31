@@ -3,7 +3,10 @@ package com.persist.domain;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -11,11 +14,21 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 @Entity
 @Table(name = "user_personal_data")
 public class UserPersonalData implements Serializable {
 
 	@Id
+	@GeneratedValue(generator="gen")
+	@Column(unique=true, nullable=false)
+	@GenericGenerator(name="gen", strategy="foreign", parameters=@Parameter(value="user", name = "property") )
 	private Long id;
 
 	private String name;
@@ -31,7 +44,7 @@ public class UserPersonalData implements Serializable {
 	@JoinColumn(name = "civil_status_id")
 	private CivilStatus civilStatus;
 
-	@OneToOne
+	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
 	private User user;
 

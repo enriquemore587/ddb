@@ -8,6 +8,10 @@ import com.persist.domain.CivilStatus;
 import com.persist.service.CivilStatusService;
 import com.persist.util.HibernateUtil;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public class CivilStatusTest {
 	public static void main(String[] args) {
 		Session session = HibernateUtil.getSessionfactory().openSession();

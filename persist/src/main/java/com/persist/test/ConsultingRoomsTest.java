@@ -6,6 +6,10 @@ import com.persist.domain.ConsultingRooms;
 import com.persist.service.ConsultingRoomsService;
 import com.persist.util.HibernateUtil;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public class ConsultingRoomsTest {
 	public static void main(String[] args) {
 		Session session = HibernateUtil.getSessionfactory().openSession();

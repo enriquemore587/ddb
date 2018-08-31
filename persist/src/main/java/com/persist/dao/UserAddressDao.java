@@ -4,6 +4,10 @@ import java.util.List;
 
 import com.persist.domain.UserAddress;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public interface UserAddressDao {
 	
 	public void save(UserAddress userAddress);

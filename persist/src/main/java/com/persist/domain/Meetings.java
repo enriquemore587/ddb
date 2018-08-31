@@ -15,6 +15,10 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 @Entity
 @Table(name = "meetings")
 public class Meetings implements Serializable {

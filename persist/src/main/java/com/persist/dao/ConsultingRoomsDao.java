@@ -4,6 +4,10 @@ import java.util.List;
 
 import com.persist.domain.ConsultingRooms;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public interface ConsultingRoomsDao {
 
 	public void save(ConsultingRooms consultingRooms);

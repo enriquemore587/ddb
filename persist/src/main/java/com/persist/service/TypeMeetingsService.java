@@ -8,6 +8,10 @@ import com.persist.dao.TypeMeetingsDao;
 import com.persist.dao.TypeMeetingsDaoImpl;
 import com.persist.domain.TypeMeetings;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public class TypeMeetingsService implements TypeMeetingsDao {
 	private TypeMeetingsDao typeMeetingsDao;
 

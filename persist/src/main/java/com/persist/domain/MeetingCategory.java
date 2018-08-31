@@ -10,6 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 @Entity
 @Table(name = "meeting_category")
 public class MeetingCategory implements Serializable {

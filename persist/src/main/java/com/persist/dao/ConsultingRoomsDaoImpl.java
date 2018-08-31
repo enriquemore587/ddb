@@ -12,6 +12,10 @@ import org.hibernate.Transaction;
 
 import com.persist.domain.ConsultingRooms;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public class ConsultingRoomsDaoImpl implements ConsultingRoomsDao {
 	public static Logger LOG = Logger.getLogger(ConsultingRoomsDaoImpl.class.getName());
 	private Session session;

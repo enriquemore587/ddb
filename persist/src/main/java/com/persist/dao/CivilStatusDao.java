@@ -4,6 +4,10 @@ import java.util.List;
 
 import com.persist.domain.CivilStatus;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public interface CivilStatusDao {
 	
 	public void save(CivilStatus civilStatus);

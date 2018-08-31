@@ -8,6 +8,10 @@ import com.persist.domain.TypeUser;
 import com.persist.service.TypeUserService;
 import com.persist.util.HibernateUtil;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public class TypeUserTest {
 	public static void main(String[] args) {
 		Session session = HibernateUtil.getSessionfactory().openSession();

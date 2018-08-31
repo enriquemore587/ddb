@@ -4,6 +4,10 @@ import java.util.List;
 
 import com.persist.domain.TypeMeetings;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public interface TypeMeetingsDao {
 	
 	public void save(TypeMeetings meetings);

@@ -4,12 +4,16 @@ import java.util.List;
 
 import org.hibernate.Session;
 
-import com.persist.domain.User;
+//import com.persist.domain.User;
 import com.persist.domain.UserAddress;
 import com.persist.service.UserAddressService;
-import com.persist.service.UserService;
+//import com.persist.service.UserService;
 import com.persist.util.HibernateUtil;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public class UserAddressTest {
 	public static void main(String[] args) {
 

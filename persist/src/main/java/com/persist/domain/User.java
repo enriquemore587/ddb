@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,9 +14,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 @Entity
 @Table(name = "users")
 public class User implements Serializable {
@@ -23,6 +27,7 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(unique = true)
 	private String user_name;
 	private String password;
 
@@ -38,7 +43,7 @@ public class User implements Serializable {
 	@JoinColumn(name = "profile_id")
 	private Profile profile;
 
-	@OneToOne(mappedBy = "user", cascade=CascadeType.ALL)
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	private UserAddress userAddress;
 
 	@OneToOne(mappedBy = "user")

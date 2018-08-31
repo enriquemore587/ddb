@@ -12,6 +12,10 @@ import org.hibernate.Transaction;
 
 import com.persist.domain.TypeUser;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public class TypeUserDaoImpl implements TypeUserDao {
 	public static Logger LOG = Logger.getLogger(TypeUserDaoImpl.class.getName());
 	private Session session;

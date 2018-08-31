@@ -12,6 +12,10 @@ import org.hibernate.Transaction;
 
 import com.persist.domain.MeetingCategory;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public class MeetingCategoryDaoImpl implements MeetingCategoryDao {
 	public static Logger LOG = Logger.getLogger(MeetingCategoryDaoImpl.class.getName());
 	private Session session;

@@ -8,6 +8,10 @@ import com.persist.domain.TypeMeetings;
 import com.persist.service.TypeMeetingsService;
 import com.persist.util.HibernateUtil;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public class TypeMeetingsTest {
 	public static void main(String[] args) {
 		Session session = HibernateUtil.getSessionfactory().openSession();

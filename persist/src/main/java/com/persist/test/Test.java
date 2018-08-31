@@ -7,6 +7,10 @@ import org.hibernate.Transaction;
 
 import com.persist.util.HibernateUtil;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public class Test {
 	public static Logger LOG = Logger.getLogger(Test.class.getName());
 

@@ -8,6 +8,10 @@ import com.persist.dao.ConsultingRoomsDao;
 import com.persist.dao.ConsultingRoomsDaoImpl;
 import com.persist.domain.ConsultingRooms;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public class ConsultingRoomsService implements ConsultingRoomsDao {
 
 	private ConsultingRoomsDao consultingRoomsDao;

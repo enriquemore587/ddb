@@ -8,6 +8,10 @@ import com.persist.dao.MeetingCategoryDao;
 import com.persist.dao.MeetingCategoryDaoImpl;
 import com.persist.domain.MeetingCategory;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public class MeetingCategoryService implements MeetingCategoryDao {
 	private MeetingCategoryDao meetingCategoryDao;
 

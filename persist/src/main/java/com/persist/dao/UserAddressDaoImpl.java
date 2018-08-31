@@ -11,6 +11,10 @@ import org.hibernate.Transaction;
 
 import com.persist.domain.UserAddress;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public class UserAddressDaoImpl implements UserAddressDao {
 	private Session session;
 

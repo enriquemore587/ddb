@@ -12,6 +12,10 @@ import org.hibernate.Transaction;
 
 import com.persist.domain.TypeMeetings;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public class TypeMeetingsDaoImpl implements TypeMeetingsDao {
 	public static Logger LOG = Logger.getLogger(TypeMeetingsDaoImpl.class.getName());
 	private Session session;

@@ -4,6 +4,10 @@ import java.util.List;
 
 import com.persist.domain.TypeUser;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public interface TypeUserDao {
 
 	public void save(TypeUser typeUser);

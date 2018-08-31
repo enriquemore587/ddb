@@ -8,6 +8,10 @@ import com.persist.domain.User;
 import com.persist.service.UserService;
 import com.persist.util.HibernateUtil;
 
+/**
+ * @author Jose Enrique Vergara
+ *
+ */
 public class UserTest {
 	public static void main(String[] args) {
 
