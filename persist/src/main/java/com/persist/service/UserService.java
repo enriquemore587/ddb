@@ -52,7 +52,7 @@ public class UserService implements UserDao {
 	}
 
 	public String registerUser(String userName, String password, Long typeUserId, Long profileId,
-			Long consultingRoomsId) {
+			Long consultingRoomsId, Integer level) {
 		String respuesta = "";
 
 		User user = this.findByUserName(userName);
@@ -76,6 +76,7 @@ public class UserService implements UserDao {
 						respuesta = StatusUsers._CONSULTING_ROOMS_NOT_FOUND.getDescripcion();
 					} else {
 						user.setConsultingRooms(consultingRooms);
+						user.setLevel(level);
 						this.userDao.save(user);
 						respuesta = StatusUsers._SUCCESS.getDescripcion();
 					}

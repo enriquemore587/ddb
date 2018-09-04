@@ -1,9 +1,6 @@
 package persist;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 
@@ -15,16 +12,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import com.mysql.fabric.xmlrpc.base.Array;
-import com.persist.domain.ConsultingRooms;
-import com.persist.domain.Profile;
-import com.persist.domain.TypeUser;
-import com.persist.domain.User;
 import com.persist.enums.StatusUsers;
-import com.persist.service.CivilStatusService;
-import com.persist.service.ConsultingRoomsService;
-import com.persist.service.ProfileService;
-import com.persist.service.TypeUserService;
 import com.persist.service.UserService;
 import com.persist.util.HibernateUtil;
 
@@ -34,20 +22,21 @@ public class UserRegisterTest {
 	public Session session;
 	private String userName, password;
 	private Long typeUserId, profileId, consultingRoomsId;
+	private Integer level;
 
-	public UserRegisterTest(String userName, String password, Long typeUserId, Long profileId, Long consultingRoomsId) {
+	public UserRegisterTest(String userName, String password, Long typeUserId, Long profileId, Long consultingRoomsId,
+			Integer level) {
 		this.userName = userName;
 		this.password = password;
 		this.typeUserId = typeUserId;
 		this.profileId = profileId;
 		this.consultingRoomsId = consultingRoomsId;
+		this.level = level;
 	}
 
 	@Parameters
 	public static Iterable<Object[]> getData() {
-		return Arrays.asList(new Object[][] { { "jose.ambriz1@atreva.mx", "123", 6l, 9l, 1l },
-				{ "jose.ambriz@atreva.mx", "123", -6l, 9l, 1l }, { "jose.ambriz@atreva.mx", "123", 6l, -9l, 1l },
-				{ "jose.ambriz@atreva.mx", "123", 6l, 9l, -1l }, { "jose.ambriz@atreva.mx", "123", 6l, 9l, 1l } });
+		return Arrays.asList(new Object[][] { { "jo1se.ambriz1@atreva.mx", "123", 6l, 9l, 1l, 1 } });
 	}
 
 	@Before
@@ -64,7 +53,7 @@ public class UserRegisterTest {
 	public void registerUser() {
 		UserService userService = new UserService(this.session);
 		String respuesta = userService.registerUser(this.userName, this.password, this.typeUserId, this.profileId,
-				this.consultingRoomsId);
+				this.consultingRoomsId, this.level);
 		assertEquals("NO SE GUARDO", StatusUsers._SUCCESS.getDescripcion(), respuesta);
 	}
 

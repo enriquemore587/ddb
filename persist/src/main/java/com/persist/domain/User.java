@@ -55,6 +55,8 @@ public class User implements Serializable {
 	@OneToMany(mappedBy = "patient")
 	private List<Meetings> patients = new ArrayList<Meetings>();
 
+	private Integer level;
+
 	public User() {
 	}
 
@@ -141,6 +143,14 @@ public class User implements Serializable {
 
 	public void setPatients(List<Meetings> patients) {
 		this.patients = patients;
+	}
+
+	public Integer getLevel() {
+		return level;
+	}
+
+	public void setLevel(Integer level) {
+		this.level = level;
 	}
 
 	@Override
